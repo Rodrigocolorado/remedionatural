@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guia Essencial de Remédios Naturais</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, sans-serif;
+}
+
+body{
+background:#f5efe3;
+color:#2f4f2f;
+line-height:1.6;
+}
+
+header{
+background:linear-gradient(#355c3a,#26432a);
+padding:40px;
+text-align:center;
+color:white;
+}
+
+header h1{
+font-size:42px;
+margin-bottom:15px;
+}
+
+header p{
+font-size:22px;
+}
+
+.hero{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+align-items:center;
+padding:50px 20px;
+gap:40px;
+}
+
+.hero img{
+width:320px;
+border-radius:10px;
+box-shadow:0 5px 20px rgba(0,0,0,0.2);
+}
+
+.hero-text{
+max-width:500px;
+}
+
+.price{
+font-size:38px;
+color:#b22222;
+font-weight:bold;
+margin:20px 0;
+}
+
+.old-price{
+text-decoration:line-through;
+font-size:24px;
+color:gray;
+}
+
+button{
+background:#2f6b3d;
+color:white;
+padding:18px 35px;
+border:none;
+border-radius:8px;
+font-size:20px;
+cursor:pointer;
+transition:.3s;
+}
+
+button:hover{
+transform:scale(1.05);
+background:#204b2b;
+}
+
+.timer{
+background:#fff;
+padding:30px;
+text-align:center;
+margin:30px auto;
+max-width:600px;
+border-radius:10px;
+box-shadow:0 0 15px rgba(0,0,0,.1);
+}
+
+.timer h2{
+margin-bottom:15px;
+}
+
+#countdown{
+font-size:36px;
+color:red;
+font-weight:bold;
+}
+
+.benefits{
+padding:50px 20px;
+background:#e8e0cf;
+text-align:center;
+}
+
+.benefits h2{
+margin-bottom:30px;
+font-size:32px;
+}
+
+.benefits ul{
+list-style:none;
+max-width:700px;
+margin:auto;
+text-align:left;
+font-size:20px;
+}
+
+.benefits li{
+margin:15px 0;
+}
+
+.comments{
+padding:50px 20px;
+}
+
+.comment{
+background:white;
+padding:20px;
+margin:15px auto;
+max-width:700px;
+border-radius:10px;
+box-shadow:0 0 10px rgba(0,0,0,.08);
+}
+
+.comment strong{
+color:#2f6b3d;
+}
+
+.floating-sale{
+position:fixed;
+bottom:20px;
+left:20px;
+background:#2f6b3d;
+color:white;
+padding:15px;
+border-radius:10px;
+box-shadow:0 0 10px rgba(0,0,0,.2);
+display:none;
+animation:fadeIn .5s;
+}
+
+footer{
+background:#26432a;
+color:white;
+text-align:center;
+padding:30px;
+margin-top:40px;
+}
+
+@keyframes fadeIn{
+from{opacity:0;}
+to{opacity:1;}
+}
+
+@media(max-width:768px){
+header h1{
+font-size:30px;
+}
+
+.hero{
+flex-direction:column;
+}
+
+.hero img{
+width:260px;
+}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>🌿 Guia Essencial de Remédios Naturais</h1>
+<p>Cure e Sabor: O Guia Completo para uma Vida Saudável</p>
+</header>
+
+<section class="hero">
+
+<img src="capa-ebook.jpg">
+
+<div class="hero-text">
+
+<h2>Descubra receitas naturais que podem transformar sua saúde sem gastar fortunas em farmácia.</h2>
+
+<p>
+✔ Mais de 120 receitas naturais<br>
+✔ Ervas medicinais explicadas<br>
+✔ Temperos que curam naturalmente<br>
+✔ Aprenda com métodos usados há gerações
+</p>
+
+<div class="old-price">De R$97,00</div>
+<div class="price">HOJE R$27,90</div>
+
+<button>QUERO GARANTIR MEU DESCONTO</button>
+
+</div>
+
+</section>
+
+
+<section class="timer">
+
+<h2>⚠ Oferta especial termina em:</h2>
+
+<div id="countdown">15:00</div>
+
+</section>
+
+
+<section class="benefits">
+
+<h2>O que você vai aprender</h2>
+
+<ul>
+<li>🌱 Como tratar dores com ervas naturais</li>
+<li>🍵 Chás medicinais para ansiedade e sono</li>
+<li>🥬 Alimentação anti-inflamatória</li>
+<li>🧄 Temperos que fortalecem imunidade</li>
+<li>💚 Receitas naturais usadas antigamente</li>
+</ul>
+
+</section>
+
+
+<section class="comments">
+
+<h2 style="text-align:center;margin-bottom:30px;">
+⭐ Veja o que nossos leitores estão dizendo
+</h2>
+
+<div class="comment">
+<strong>Mariana S.</strong><br>
+"Comprei sem expectativa e me surpreendi. Muito conteúdo útil."
+</div>
+
+<div class="comment">
+<strong>Carlos M.</strong><br>
+"Economizei muito deixando de comprar remédios desnecessários."
+</div>
+
+<div class="comment">
+<strong>Fernanda R.</strong><br>
+"Material extremamente bem organizado. Vale muito a pena."
+</div>
+
+<div class="comment">
+<strong>Patrícia A.</strong><br>
+"Comecei a usar algumas receitas e gostei demais."
+</div>
+
+</section>
+
+
+<div class="floating-sale" id="salePopup">
+Alguém acabou de comprar o ebook...
+</div>
+
+
+<footer>
+
+<h2>🔥 Últimas unidades promocionais</h2>
+
+<br>
+
+<button>COMPRAR AGORA</button>
+
+<br><br>
+
+Garantia de 7 dias • Pagamento Seguro
+
+</footer>
+
+
+
+<script>
+
+// TIMER
+
+let time = 900;
+
+function updateTimer(){
+
+let minutes = Math.floor(time / 60);
+
+let seconds = time % 60;
+
+document.getElementById("countdown").innerHTML =
+`${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+
+time--;
+
+if(time < 0){
+time = 900;
+}
+
+}
+
+setInterval(updateTimer,1000);
+
+
+// POPUP COMPRAS
+
+const names = [
+
+"Maria - São Paulo",
+"João - Rio de Janeiro",
+"Fernanda - Curitiba",
+"Carlos - Porto Alegre",
+"Patricia - Salvador",
+"Ana - Recife",
+"Juliana - Brasília"
+
+];
+
+function showSale(){
+
+let popup = document.getElementById("salePopup");
+
+let random = names[Math.floor(Math.random()*names.length)];
+
+popup.innerHTML = "✅ " + random + " acabou de comprar.";
+
+popup.style.display="block";
+
+setTimeout(()=>{
+
+popup.style.display="none";
+
+},4000);
+
+}
+
+setInterval(showSale,8000);
+
+</script>
+
+</body>
+</html>
