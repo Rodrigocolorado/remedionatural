@@ -1,207 +1,188 @@
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial, sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap');
+
+:root {
+    --primary: #2d5a27; /* Verde da folha da capa */
+    --accent: #d4833b;  /* Tom terroso da capa para contraste no CTA */
+    --text: #3e322b;    /* Marrom escuro para leitura */
+    --bg: #fdfaf5;      /* Fundo bege clarinho (estilo papel kraft claro) */
+    --white: #ffffff;
+    --shadow: 0 10px 25px rgba(62, 50, 43, 0.1);
 }
 
-body{
-background:#f5efe3;
-color:#2f4f2f;
-line-height:1.6;
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
 }
 
-/* HEADER */
-
-header{
-background:linear-gradient(#355c3a,#26432a);
-padding:40px;
-text-align:center;
-color:white;
+/* Header Otimizado */
+header {
+    text-align: center;
+    padding: 40px 20px;
+    background: linear-gradient(to bottom, #f3ede2, var(--bg));
 }
 
-header h1{
-font-size:42px;
-margin-bottom:15px;
+header h1 {
+    font-size: 2.2rem;
+    color: var(--primary);
+    margin-bottom: 10px;
 }
 
-header p{
-font-size:22px;
+/* Seção Hero (A que mais converte) */
+.hero {
+    max-width: 1100px;
+    margin: 0 auto 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    padding: 20px;
+    align-items: center;
 }
 
-/* HERO */
-
-.hero{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-align-items:center;
-padding:50px 20px;
-gap:40px;
+.hero img {
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
 }
 
-.hero img{
-width:320px;
-border-radius:10px;
-box-shadow:0 5px 20px rgba(0,0,0,.2);
+.hero img:hover { transform: scale(1.02); }
+
+.hero-text h2 {
+    font-size: 1.8rem;
+    line-height: 1.3;
+    margin-bottom: 20px;
 }
 
-.hero-text{
-max-width:500px;
+.hero-text p {
+    font-size: 1.1rem;
+    margin-bottom: 25px;
 }
 
-.price{
-font-size:38px;
-color:#b22222;
-font-weight:bold;
-margin:20px 0;
+/* Preços e Botão */
+.price-container {
+    background: var(--white);
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    border: 2px solid #eee;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
-.old-price{
-text-decoration:line-through;
-font-size:24px;
-color:gray;
-margin-top:20px;
+.old-price {
+    text-decoration: line-through;
+    color: #999;
+    font-size: 1rem;
 }
 
-/* BUTTON */
-
-button{
-background:#2f6b3d;
-color:white;
-padding:18px 35px;
-border:none;
-border-radius:8px;
-font-size:20px;
-cursor:pointer;
-transition:.3s;
+.price {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--primary);
+    margin: 5px 0 15px;
 }
 
-button:hover{
-transform:scale(1.05);
-background:#204b2b;
+button {
+    width: 100%;
+    background-color: #e67e22; /* Cor de destaque energética */
+    color: white;
+    border: none;
+    padding: 20px;
+    font-size: 1.2rem;
+    font-weight: 800;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(230, 126, 34, 0.4);
+    transition: all 0.3s ease;
+    animation: pulse 2s infinite;
 }
 
-/* TIMER */
-
-.timer{
-background:white;
-padding:30px;
-text-align:center;
-margin:30px auto;
-max-width:600px;
-border-radius:10px;
-box-shadow:0 0 15px rgba(0,0,0,.1);
+button:hover {
+    background-color: #d35400;
+    transform: translateY(-2px);
 }
 
-.timer h2{
-margin-bottom:15px;
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.03); }
+    100% { transform: scale(1); }
 }
 
-#countdown{
-font-size:36px;
-color:red;
-font-weight:bold;
+/* Timer de Urgência */
+.timer {
+    background: #fff0f0;
+    border: 1px solid #ffcccc;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    margin: 20px 0;
 }
 
-/* BENEFITS */
-
-.benefits{
-padding:50px 20px;
-background:#e8e0cf;
-text-align:center;
+#countdown {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #c0392b;
 }
 
-.benefits h2{
-margin-bottom:30px;
-font-size:32px;
+/* Benefícios */
+.benefits {
+    max-width: 800px;
+    margin: 60px auto;
+    background: var(--white);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
 }
 
-.benefits ul{
-list-style:none;
-max-width:700px;
-margin:auto;
-text-align:left;
-font-size:20px;
+.benefits h2 { text-align: center; margin-bottom: 30px; color: var(--primary); }
+.benefits ul { list-style: none; }
+.benefits li {
+    padding: 12px 0;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 1.1rem;
 }
 
-.benefits li{
-margin:15px 0;
+/* Depoimentos (Prova Social) */
+.comments {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
 }
 
-/* COMMENTS */
-
-.comments{
-padding:50px 20px;
+.comment {
+    background: var(--white);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    border-bottom: 4px solid var(--primary);
 }
 
-.comments h2{
-text-align:center;
-margin-bottom:30px;
+/* Popup Flutuante */
+.floating-sale {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background: white;
+    padding: 12px 20px;
+    border-radius: 50px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    display: none;
+    align-items: center;
+    gap: 10px;
+    z-index: 1000;
+    font-size: 0.9rem;
 }
 
-.comment{
-background:white;
-padding:20px;
-margin:15px auto;
-max-width:700px;
-border-radius:10px;
-box-shadow:0 0 10px rgba(0,0,0,.08);
-}
-
-.comment strong{
-color:#2f6b3d;
-}
-
-/* FLOATING */
-
-.floating-sale{
-position:fixed;
-bottom:20px;
-left:20px;
-background:#2f6b3d;
-color:white;
-padding:15px;
-border-radius:10px;
-box-shadow:0 0 10px rgba(0,0,0,.2);
-display:none;
-animation:fadeIn .5s;
-}
-
-@keyframes fadeIn{
-from{opacity:0;}
-to{opacity:1;}
-}
-
-/* FOOTER */
-
-footer{
-background:#26432a;
-color:white;
-text-align:center;
-padding:30px;
-margin-top:40px;
-}
-
-/* RESPONSIVO */
-
-@media(max-width:768px){
-
-header h1{
-font-size:30px;
-}
-
-.hero{
-flex-direction:column;
-}
-
-.hero img{
-width:260px;
-}
-
-button{
-font-size:18px;
-padding:15px 20px;
-}
-
+/* Mobile */
+@media (max-width: 768px) {
+    .hero { grid-template-columns: 1fr; text-align: center; }
+    header h1 { font-size: 1.8rem; }
 }
