@@ -1,72 +1,53 @@
-// ===============================
-// CHECKOUT KIWIFY
-// ===============================
+// 1. Contador Regressivo Persistente
+function startTimer(duration, display) {
+    let timer = localStorage.getItem('timer') || duration;
+    
+    setInterval(function () {
+        let minutes = parseInt(timer / 60, 10);
+        let seconds = parseInt(timer % 60, 10);
 
-function comprar(){
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
 
-window.open("https://pay.kiwify.com.br/QIlvDZB", "_blank");
+        display.textContent = minutes + ":" + seconds;
 
+        if (--timer < 0) {
+            timer = duration; // reinicia ou para
+        }
+        localStorage.setItem('timer', timer);
+    }, 1000);
 }
 
+window.onload = function () {
+    let fifteenMinutes = 60 * 15;
+    let display = document.querySelector('#countdown');
+    startTimer(fifteenMinutes, display);
+    
+    // Iniciar popups de venda aleatórios
+    setTimeout(showSalePopup, 3000);
+};
 
-// ===============================
-// CRONOMETRO
-// ===============================
+// 2. Simulação de Prova Social (Popups)
+const names = ["Ricardo G.", "Ana P.", "Luciana M.", "Marcos V.", "Sônia R.", "Felipe A."];
+const cities = ["São Paulo", "Rio de Janeiro", "Curitiba", "Belo Horizonte", "Salvador"];
 
-let time = 900;
-
-function updateTimer(){
-
-let minutes = Math.floor(time / 60);
-let seconds = time % 60;
-
-document.getElementById("countdown").innerHTML =
-`${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
-
-time--;
-
-if(time < 0){
-time = 900; // reinicia
+function showSalePopup() {
+    const popup = document.getElementById('salePopup');
+    const name = names[Math.floor(Math.random() * names.length)];
+    const city = cities[Math.floor(Math.random() * cities.length)];
+    
+    popup.innerHTML = `✅ <strong>${name}</strong> (${city}) acabou de adquirir o guia!`;
+    popup.style.display = 'flex';
+    
+    setTimeout(() => {
+        popup.style.display = 'none';
+        // agenda o próximo popup para daqui a 10 a 20 segundos
+        setTimeout(showSalePopup, Math.floor(Math.random() * 10000) + 10000);
+    }, 5000);
 }
 
+// 3. Função de Compra (Simulação)
+function comprar() {
+    // Aqui você insere o link da sua página de pagamento (Hotmart, Kiwify, etc)
+    window.location.href = "https://seulinkdepagamento.com"; 
 }
-
-setInterval(updateTimer,1000);
-
-
-// ===============================
-// POPUP COMPRAS
-// ===============================
-
-const names = [
-
-"Maria - São Paulo",
-"João - Rio de Janeiro",
-"Fernanda - Curitiba",
-"Carlos - Porto Alegre",
-"Patricia - Salvador",
-"Ana - Recife",
-"Juliana - Brasília",
-"Roberto - Minas Gerais"
-
-];
-
-function showSale(){
-
-let popup = document.getElementById("salePopup");
-
-let random = names[Math.floor(Math.random() * names.length)];
-
-popup.innerHTML = "✅ " + random + " acabou de comprar agora.";
-
-popup.style.display = "block";
-
-setTimeout(() => {
-
-popup.style.display = "none";
-
-},4000);
-
-}
-
-setInterval(showSale,8000);
