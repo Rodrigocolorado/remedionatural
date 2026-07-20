@@ -31,4 +31,4 @@ window.addEventListener('load', () => {
     setInterval(show, 12000);
 })();
 
-function comprar() { window.location.href = "https://pay.kiwify.com.br/QIlvDZB"; }
+function comprar() { window.location.href = "https://pay.kiwify.com.br/6G8apvn"; }
