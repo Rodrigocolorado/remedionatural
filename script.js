@@ -1,53 +1,34 @@
-// 1. Contador Regressivo Persistente
-function startTimer(duration, display) {
-    let timer = localStorage.getItem('timer') || duration;
-    
-    setInterval(function () {
-        let minutes = parseInt(timer / 60, 10);
-        let seconds = parseInt(timer % 60, 10);
-
-        minutes = minutes < 10 ? "0" + minutes : minutes;
-        seconds = seconds < 10 ? "0" + seconds : seconds;
-
-        display.textContent = minutes + ":" + seconds;
-
-        if (--timer < 0) {
-            timer = duration; // reinicia ou para
-        }
-        localStorage.setItem('timer', timer);
+// Timer Persistente
+(function(){
+    const display = document.querySelector('#countdown');
+    let timer = localStorage.getItem('site_timer') || (15 * 60);
+    setInterval(() => {
+        let min = parseInt(timer / 60, 10);
+        let sec = parseInt(timer % 60, 10);
+        display.textContent = `${min < 10 ? "0" + min : min}:${sec < 10 ? "0" + sec : sec}`;
+        if (--timer < 0) timer = 15 * 60;
+        localStorage.setItem('site_timer', timer);
     }, 1000);
-}
+})();
 
-window.onload = function () {
-    let fifteenMinutes = 60 * 15;
-    let display = document.querySelector('#countdown');
-    startTimer(fifteenMinutes, display);
-    
-    // Iniciar popups de venda aleatórios
-    setTimeout(showSalePopup, 3000);
-};
+// Card Flutuante Topo
+window.addEventListener('load', () => {
+    const card = document.getElementById('promoCard');
+    const closeBtn = document.getElementById('closePromo');
+    setTimeout(() => { if(!sessionStorage.getItem('cardClosed')) card.classList.add('active'); }, 2000);
+    closeBtn.onclick = () => { card.classList.remove('active'); sessionStorage.setItem('cardClosed', 'true'); };
+});
 
-// 2. Simulação de Prova Social (Popups)
-const names = ["Ricardo G.", "Ana P.", "Luciana M.", "Marcos V.", "Sônia R.", "Felipe A."];
-const cities = ["São Paulo", "Rio de Janeiro", "Curitiba", "Belo Horizonte", "Salvador"];
-
-function showSalePopup() {
+// Social Proof
+(function(){
     const popup = document.getElementById('salePopup');
-    const name = names[Math.floor(Math.random() * names.length)];
-    const city = cities[Math.floor(Math.random() * cities.length)];
-    
-    popup.innerHTML = `✅ <strong>${name}</strong> (${city}) acabou de adquirir o guia!`;
-    popup.style.display = 'flex';
-    
-    setTimeout(() => {
-        popup.style.display = 'none';
-        // agenda o próximo popup para daqui a 10 a 20 segundos
-        setTimeout(showSalePopup, Math.floor(Math.random() * 10000) + 10000);
-    }, 5000);
-}
+    const names = ["Ricardo", "Ana", "Luciana", "Marcos", "Sônia"];
+    function show() {
+        popup.innerHTML = `✅ <strong>${names[Math.floor(Math.random()*names.length)]}</strong> acabou de comprar!`;
+        popup.style.display = 'block';
+        setTimeout(() => { popup.style.display = 'none'; }, 4000);
+    }
+    setInterval(show, 12000);
+})();
 
-// 3. Função de Compra (Simulação)
-function comprar() {
-    // Aqui você insere o link da sua página de pagamento (Hotmart, Kiwify, etc)
-    window.location.href = "https://seulinkdepagamento.com"; 
-}
+function comprar() { window.location.href = "https://pay.kiwify.com.br/QIlvDZB"; }
